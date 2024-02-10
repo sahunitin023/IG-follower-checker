@@ -9,7 +9,6 @@ def get_followings():
         following_contents = file.read()
 
     soup = BeautifulSoup(following_contents, 'html.parser')
-    # following_span_tag = soup.find(name='span', class_='_ap3a _aaco _aacw _aacx _aad7 _aade')
     followings_list = [tag.getText() for tag in soup.find_all(name='span', class_='_ap3a _aaco _aacw _aacx _aad7 _aade')]
     return followings_list
 
@@ -28,4 +27,3 @@ followings = get_followings()
 
 not_following_accounts = [acc for acc in followings if acc not in followers]
 print(not_following_accounts)
-
